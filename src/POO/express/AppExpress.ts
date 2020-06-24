@@ -31,6 +31,7 @@ class AppExpress {
 
     public listen() {
         this.app.listen(this.config.port, () => {
+            
             console.log(`App listening on the port ${this.config.port}`)
         })
     }
