@@ -2,7 +2,7 @@ import express from  "express";
 import morgan from "morgan";
 import ExpressConfig from "./expressConfig.interface";
 import Controller from "./Controller";
-import cookieParser from "cookie-parser";
+import cors from "cors";
 
 class AppExpress {
     public app:express.Application;
@@ -20,7 +20,7 @@ class AppExpress {
     }
     private initializateMiddlewares() {
         this.app.use(express.json())
-        this.app.use(cookieParser())
+        this.app.use(cors())
         if (this.config.environment === "dev") this.app.use(morgan("dev"))
     }
 

@@ -4,8 +4,7 @@ const cheerio = require('cheerio')
 async function getAnswer(page:any) {
     const $ = cheerio.load(await page.content())
     const answer = $('.contenedor p:last-child')
-    
-    return answer.html()
+    return answer.text().replace(/X/g, '\nX')
 }
 
 async function scraper(url:string) {
