@@ -1,7 +1,7 @@
 import  { ExpressConfig }  from "../POO/express";
 
 const configExpress:ExpressConfig ={
-    port: 5000,
+    port: 80,
     environment: process.env.ENVIRONMENT || "dev"
 }
 
