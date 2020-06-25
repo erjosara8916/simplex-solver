@@ -33,8 +33,12 @@ async function scraper(url:string) {
         console.log('----- load page')
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 })
         const answerlink = '[href="solucion2.php?l=es"]'
-        
-        await page.click(answerlink, true)
+        const answerlink2 = '[href="solucion.php?l=es"]'
+        try {
+            await page.click(answerlink, true)
+        } catch(e) {
+            await page.click(answerlink2, true)
+        }
         await page.waitFor(1000)
         const answer = await getAnswer(page)
         await browser.close()
