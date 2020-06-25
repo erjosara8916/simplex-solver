@@ -1,4 +1,5 @@
 import  scraper from './scraper'
+import scrapeGraphic from "./graphic";
 
 async function simplex(req:any, res:any) {
     const { url } = req.body
@@ -6,4 +7,11 @@ async function simplex(req:any, res:any) {
     return res.json({answer})
 }
 
-export {simplex}
+async function graphic(req:any, res:any) {
+    
+    const { url } = req.body
+    const answer = await scrapeGraphic(url)
+    return res.json({answer})
+}
+
+export { simplex, graphic }
