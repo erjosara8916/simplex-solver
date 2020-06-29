@@ -27,7 +27,7 @@ async function scraper(url:string) {
         console.log('----- load page')
         await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 })
         const $ = cheerio.load(await page.content())
-        const answer = $("table.table").html()
+        const answer = $("table.table").html().replace(/#ED7B78/g, "#F45454").replace(/#96D796/g, "#4199C8")
         await browser.close()
         return answer
     } catch (e) {
