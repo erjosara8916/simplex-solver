@@ -1,2 +1,3 @@
 declare function simplex(req: any, res: any): Promise<any>;
-export { simplex };
+declare function graphic(req: any, res: any): Promise<any>;
+export { simplex, graphic };
